@@ -14,5 +14,6 @@ exports.config = {
 
   onPrepare: function() {
     global.By = global.by;
+    global._ = require('underscore-node')._;
   }
 }
