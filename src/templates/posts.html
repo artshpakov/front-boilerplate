@@ -1,0 +1,4 @@
+<p class="post" ng-repeat="post in posts">
+  <b class="post-headline">{{ 'posts.headline' | translate:{author: post.author} }}:</b><br/>
+  {{ post.text }}
+</p>

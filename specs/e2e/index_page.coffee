@@ -1,5 +1,5 @@
 describe 'Index page', ->
 
-  it 'should have a title', ->
+  it 'should have posts loop', ->
     browser.get('/')
-    expect(element(By.id('posts')).isPresent()).toBeTruthy()
+    expect(element(By.repeater('post in posts')).isPresent()).toBeTruthy()
