@@ -1,0 +1,17 @@
+{
+  "name": "buzzpub",
+  "version": "0.0.0",
+  "authors": [
+    "artshpakov <artshpakov@yandex.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "underscore": "~1.8.3"
+  }
+}
