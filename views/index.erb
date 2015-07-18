@@ -14,7 +14,7 @@
 
   <body ng-app="BuzzoolaPub">
 
-    <div ng-controller="BuzzoolaPub.PostsCtrl">
+    <div id="posts" ng-controller="BuzzoolaPub.PostsCtrl">
       <p class="post" ng-repeat="post in posts">
         <b>{{ post.author }}</b> says:<br/>
         {{ post.text }}
