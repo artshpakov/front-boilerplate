@@ -7,7 +7,9 @@ module.exports = function(config) {
       'static/js/vendor.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/rosie/src/rosie.js',
-      'src/javascripts/**/*.coffee',
+      'src/shared/app.coffee',
+      'src/shared/**/*.coffee',
+      'src/components/**/*.coffee',
       'specs/factories/*.coffee',
       'specs/unit/**/*.coffee'
     ],
