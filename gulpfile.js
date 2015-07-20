@@ -4,7 +4,8 @@ var gulp = require('gulp'),
   wrap   = require('gulp-wrapper'),
   util   = require('gulp-util'),
   concat = require('gulp-concat'),
-  coffee = require('gulp-coffee');
+  coffee = require('gulp-coffee'),
+  stylus = require('gulp-stylus');
 
 
 gulp.task('coffee', function() {
@@ -34,17 +35,26 @@ gulp.task('i18n', function() {
     .pipe(gulp.dest('./static/js/'));
 });
 
+gulp.task('stylus', function () {
+  gulp.src(['./src/shared/**/*.styl', './src/components/**/*.styl'])
+    .pipe(stylus())
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('./static/css/'));
+});
+
 gulp.task('templates', function(){
   gulp.src('./src/**/*.html')
-    .pipe(gulp.dest("./static/templates"));
+    .pipe(gulp.dest("./static/templates/"));
 });
 
 
 gulp.task('watch', function() {
   gulp.watch('./config/i18n/*.yml', ['i18n']);
-  gulp.watch('./src/javascript/**/*.coffee', ['coffee']);
+  gulp.watch('./src/**/*.coffee', ['coffee']);
+  gulp.watch('./src/**/*.styl', ['stylus']);
+  gulp.watch('./src/**/*.html', ['templates']);
 });
 
 
-gulp.task('build', ['deps', 'i18n', 'coffee', 'templates']);
+gulp.task('build', ['deps', 'i18n', 'coffee', 'stylus', 'templates']);
 gulp.task('default', ['build', 'watch']);
