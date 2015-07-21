@@ -1,0 +1,4 @@
+p.post(ng-repeat="post in posts")
+  span.post-headline {{ 'posts.headline' | translate:{author: post.author} }}:
+  br
+  | {{ post.text }}

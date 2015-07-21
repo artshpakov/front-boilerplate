@@ -5,7 +5,8 @@ var gulp = require('gulp'),
   util   = require('gulp-util'),
   concat = require('gulp-concat'),
   coffee = require('gulp-coffee'),
-  stylus = require('gulp-stylus');
+  stylus = require('gulp-stylus'),
+  jade   = require('gulp-jade');
 
 
 gulp.task('coffee', function() {
@@ -43,7 +44,8 @@ gulp.task('stylus', function () {
 });
 
 gulp.task('templates', function(){
-  gulp.src('./src/**/*.html')
+  gulp.src('./src/**/*.jade')
+    .pipe(jade())
     .pipe(gulp.dest("./static/templates/"));
 });
 
@@ -52,7 +54,7 @@ gulp.task('watch', function() {
   gulp.watch('./config/i18n/*.yml', ['i18n']);
   gulp.watch('./src/**/*.coffee', ['coffee']);
   gulp.watch('./src/**/*.styl', ['stylus']);
-  gulp.watch('./src/**/*.html', ['templates']);
+  gulp.watch('./src/**/*.jade', ['templates']);
 });
 
 
